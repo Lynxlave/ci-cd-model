@@ -5,7 +5,7 @@ on:
     branches: [ master ]
 
 jobs:
-  deploy
+  deploy:
     runs-on: ubuntu-latest
     permissions:
       contents: read
@@ -24,4 +24,3 @@ jobs:
           curl -X POST https://api.cloudprovider/deploy \
             -H "Authorization: Bearer ${{ secrets.CLOUD_TOKEN }}" \
             -d "image=ghcr.io/${{ github.repository }}:${{ github.sha }}"
-
